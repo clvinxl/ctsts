@@ -31,7 +31,9 @@ var inputJSON = [
 //code for the dropdowns that allow "tags", meaning allows user to create new items
 
 $(document).ready(function () {
-    $(".js-example-basic-single").select2({
+    
+    //FOR SINGLE SELECT
+    $(".EXAMPLE").select2({
         placeholder: "Placeholder Text",
         allowClear: true,
         insertTag: function (data, tag) {
@@ -41,8 +43,9 @@ $(document).ready(function () {
         data: inputJSON,
         tags: true
     });
-
-    $(".js-example-basic-multiple").select2({
+    
+    //FOR MULTI SELECT
+    $(".EXAMPLE").select2({
         placeholder: "Placeholder Text",
         insertTag: function (data, tag) {
             // Insert the tag at the end of the results
