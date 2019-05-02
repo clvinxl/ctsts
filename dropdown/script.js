@@ -22,6 +22,12 @@ var inputJSON = [
     }
 ];
 
+
+
+
+
+
+
 //code for the dropdowns that allow "tags", meaning allows user to create new items
 
 $(document).ready(function () {
@@ -46,3 +52,46 @@ $(document).ready(function () {
         tags: true
         });
 });
+
+
+
+
+
+
+
+//function for the button to prepare and send data
+function sendData() {
+    //print entries
+    var output = $(".js-example-basic-multiple").val();
+    //convert index values to text
+    for (var key in output) {
+        if (isNaN(output[key])) {
+        } else {
+            index = parseInt(output[key]);
+            output[key] = inputJSON[index].text;
+        }
+    } 
+
+    //check entries for overlap
+    var inputs = [];
+    var newEntry = [];
+    for (var index in inputJSON) {
+        inputs.push(inputJSON[index].text);
+    };
+    for (var i in output) {
+        if (inputs.includes(output[i])) {
+            //do nothing
+        } else {
+            newEntry.push(output[i]);
+        };
+    }
+    
+    //ALERT if there is new data
+    if (newEntry.length != 0) {
+        var alertString = "Are you sure you want to add: " + newEntry.toString();
+        alertString = alertString.replace(",", ", ");
+        alert(alertString);
+    }
+    
+    //Send output for array of output data. Send newEntry for array of new user-entered data.
+}
