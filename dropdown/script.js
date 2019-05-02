@@ -94,4 +94,6 @@ function sendData() {
     }
     
     //Send output for array of output data. Send newEntry for array of new user-entered data.
+    //console.log(output)
+    //console.log(newEntry)
 }
